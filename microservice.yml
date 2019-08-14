@@ -15,7 +15,7 @@ info:
     url: https://opensource.org/licenses/MIT
 actions:
   analyze:
-    help: Create new calendar.
+    help: Analyze text with its sentiment and keywords.
     http:
       port: 3000
       method: post
@@ -26,12 +26,12 @@ actions:
         type: string
         in: requestBody
         required: true
-        help: The summary for new calendar.
+        help: The address for client to connect eg- "http://IP-of-docker-machine:8080" with port.
       text:
         type: string
         in: requestBody
         required: true
-        help: The summary for new calendar.
+        help: The text to analyze.
     output:
       type: map
       contentType: application/json
@@ -42,8 +42,3 @@ actions:
         keywords:
           help: List of all keywords. 
           type: list
-# environment:
-#    MB_KEY:
-#      type: string
-#      required: true
-#      help: machine-box api key
