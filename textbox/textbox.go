@@ -5,17 +5,19 @@ import (
 	result "github.com/heaptracetechnology/machinebox-textbox/result"
 	"github.com/machinebox/sdk-go/textbox"
 	"net/http"
+	"os"
 	"strings"
 )
 
 //MachineBox struct
 type MachineBox struct {
-	Text    string `json:"text,omitempty"`
-	Address string `json:"address,omitempty"`
+	Text string `json:"text,omitempty"`
 }
 
 //TextAnalyze MachineBox-Textbox
 func TextAnalyze(responseWriter http.ResponseWriter, request *http.Request) {
+
+	address := os.Getenv("ADDRESS")
 
 	decoder := json.NewDecoder(request.Body)
 	var param MachineBox
@@ -25,7 +27,7 @@ func TextAnalyze(responseWriter http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	client := textbox.New(param.Address)
+	client := textbox.New(address)
 
 	text := strings.NewReader(param.Text)
 

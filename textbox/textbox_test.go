@@ -38,7 +38,7 @@ var _ = Describe("Text Analyze with invalid param", func() {
 
 var _ = Describe("Text Analyze", func() {
 
-	textbox := MachineBox{Address: "http://localhost:8080", Text: "I can't wait for @machineboxio to release Textbox; it provides natural language processing and a whole host of other #useful things."}
+	textbox := MachineBox{Text: "I can't wait for @machineboxio to release Textbox; it provides natural language processing and a whole host of other #useful things."}
 	requestBody := new(bytes.Buffer)
 	encodeErr := json.NewEncoder(requestBody).Encode(textbox)
 	if encodeErr != nil {

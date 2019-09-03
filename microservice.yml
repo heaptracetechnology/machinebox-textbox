@@ -22,11 +22,6 @@ actions:
       path: /textAnalyze
       contentType: application/json
     arguments:
-      address:
-        type: string
-        in: requestBody
-        required: true
-        help: The address for client to connect eg- "http://IP-of-docker-machine:8080" with port.
       text:
         type: string
         in: requestBody
@@ -42,3 +37,8 @@ actions:
         keywords:
           help: List of all keywords. 
           type: list
+environment:
+  ADDRESS:
+    type: string
+    required: true
+    help: The server IP address.
